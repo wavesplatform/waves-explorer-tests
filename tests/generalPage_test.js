@@ -32,7 +32,7 @@ Scenario('Last blocks elements', (I, generalPage) => {
 Scenario('UTX elements', (I, generalPage) => {
   I.openExplorer();
 
-  I.waitForVisible(generalPage.utx.block);
+  I.waitForVisible(generalPage.utx.block, 30);
   I.waitForVisible(generalPage.utx.title);
 
   I.waitForVisible(generalPage.utx.row.block);
