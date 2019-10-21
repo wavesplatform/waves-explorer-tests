@@ -74,7 +74,9 @@ module.exports = {
     sponsoredFeeAsset: {xpath: '//div[.="Sponsored Fee"]//following-sibling::*//a'},
     transactionFee: {xpath: '//div[.="Transaction Fee"]//following-sibling::*'},
 
-    status: {xpath: '//div[.="Status"]//following-sibling::*'}
+    status: {xpath: '//div[.="Status"]//following-sibling::*'},
+
+    data: {xpath: '//div[.="Data"]//following-sibling::*'}
   },
 
   buyOrder: {
