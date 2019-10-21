@@ -87,3 +87,28 @@ Scenario('Link to DappAddress', (I, invokeScriptTxPage) => {
   I.click(invokeScriptTxPage.fields.dappAddress);
   I.seeCurrentUrlEquals('/address/3P94WBB8fPrFsrBRugeyT9xFymZEbHMaLWW/tx');
 });
+
+Scenario('Link to DappAddress (Alias)', (I, invokeScriptTxPage) => {
+  I.openExplorer('/tx/9qqnNVTjtvPmcN9ApGrd4RENFQ937uiWDow7ofYqZQmp');
+
+  I.waitForVisible(invokeScriptTxPage.fields.dappAddress);
+  I.click(invokeScriptTxPage.fields.dappAddress);
+  I.wait(2);
+  I.seeCurrentUrlEquals('/address/3P94WBB8fPrFsrBRugeyT9xFymZEbHMaLWW/tx');
+});
+
+Scenario('Link to Fee asset', (I, invokeScriptTxPage) => {
+  I.openExplorer('/tx/EKfZoKFfn8EohjjjwR6B5wuKJq1k21Q4NydKDFdTxafq');
+
+  I.waitForVisible(invokeScriptTxPage.fields.feeAsset);
+  I.click(invokeScriptTxPage.fields.feeAsset);
+  I.seeCurrentUrlEquals('/assets/8RwwkZJ373Nm6fJCgV2Lefe6FeWawUY2APujcsauUNMR');
+});
+
+Scenario('Link to Payment asset', (I, invokeScriptTxPage) => {
+  I.openExplorer('/tx/EKfZoKFfn8EohjjjwR6B5wuKJq1k21Q4NydKDFdTxafq');
+
+  I.waitForVisible(invokeScriptTxPage.fields.paymentAsset);
+  I.click(invokeScriptTxPage.fields.paymentAsset);
+  I.seeCurrentUrlEquals('/assets/B3uGHFRpSUuGEDWjqB9LWWxafQj8VTvpMucEyoxzws5H');
+});
