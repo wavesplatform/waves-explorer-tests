@@ -26,12 +26,12 @@ module.exports = {
   },
 
   blockRow: {
-  	icon: {css: 'table > tbody > tr > td.block-img-handler.nowrap > div.block-img.sm-hide'},
-  	height: {css: 'table > tbody > tr > td.block-img-handler.nowrap > div.line.no-wrap > a'},
-  	timestamp: {css: 'table > tbody > tr > td.block-img-handler.nowrap > div.line.no-break > label'},
-  	baseTarget: {css: 'table > tbody > tr > td:nth-child(2) > div'},
-  	generator: {css: 'table > tbody > tr > td:nth-child(3) > div:nth-child(1) > a'},
-  	signature: {css: 'table > tbody > tr > td:nth-child(3) > div:nth-child(2) > label'},
-  	txCount: {css: 'table > tbody > tr > td:nth-child(4) > div'}
+  	icon: {css: 'table > tbody > tr:nth-child(1) > td.block-img-handler.nowrap > div.block-img.sm-hide'},
+  	height: {css: 'table > tbody > tr:nth-child(1) > td.block-img-handler.nowrap > div.line.no-wrap > a'},
+  	timestamp: {css: 'table > tbody > tr:nth-child(1) > td.block-img-handler.nowrap > div.line.no-break > label'},
+  	baseTarget: {css: 'table > tbody > tr:nth-child(1) > td:nth-child(2) > div'},
+  	generator: {css: 'table > tbody > tr:nth-child(1) > td:nth-child(3) > div:nth-child(1) > a'},
+  	signature: {css: 'table > tbody > tr:nth-child(1) > td:nth-child(3) > div:nth-child(2) > label'},
+  	txCount: {css: 'table > tbody > tr:nth-child(1) > td:nth-child(4) > div'}
   }
 }

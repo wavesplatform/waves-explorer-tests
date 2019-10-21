@@ -48,7 +48,7 @@ Scenario('Navigation: Last/First page', async (I, blocksPage) => {
 
   I.say('Check that table updates');
   I.wait(2);
-  I.dontSee(height[0], blocksPage.blockRow.height);
+  I.dontSee(height, blocksPage.blockRow.height);
 
   I.say('Click on First page');
   I.click(blocksPage.navigator.first);
@@ -71,7 +71,7 @@ Scenario('Navigation: Next/Prev 5 pages', async (I, blocksPage) => {
   I.see('6', blocksPage.navigator.currentPage);
   I.say('Check that table updates');
   I.wait(2);
-  I.dontSee(height[0], blocksPage.blockRow.height);
+  I.dontSee(height, blocksPage.blockRow.height);
 
   I.say('Click on Prev 5 pages (...)');
   I.click(blocksPage.navigator.prevFive);
@@ -94,7 +94,7 @@ Scenario('Navigation: Page numbers', async (I, blocksPage) => {
   I.see('4', blocksPage.navigator.currentPage);
   I.say('Check that table updates');
   I.wait(2);
-  I.dontSee(height[0], blocksPage.blockRow.height);
+  I.dontSee(height, blocksPage.blockRow.height);
 
   I.say('Click on page 2');
   I.click(blocksPage.navigator.getPageByNum('2'));
@@ -109,7 +109,7 @@ Scenario('Block height link', async (I, blocksPage) => {
   var height = await I.grabTextFrom(blocksPage.blockRow.height);
 
   I.click(blocksPage.blockRow.height);
-  I.seeCurrentUrlEquals(`/blocks/${height[0]}`);
+  I.seeCurrentUrlEquals(`/blocks/${height}`);
 });
 
 Scenario('Block generator link', async (I, blocksPage) => {
@@ -119,5 +119,5 @@ Scenario('Block generator link', async (I, blocksPage) => {
   var generator = await I.grabTextFrom(blocksPage.blockRow.generator);
 
   I.click(blocksPage.blockRow.generator);
-  I.seeCurrentUrlEquals(`/address/${generator[0]}/tx`);
+  I.seeCurrentUrlEquals(`/address/${generator}/tx`);
 });
