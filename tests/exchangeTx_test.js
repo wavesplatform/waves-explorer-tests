@@ -1,4 +1,4 @@
-var page = require('../pages/exchangeTx.js');
+var page = require('../pages/transactionInfo.js');
 
 Feature('Exchange Transacrion');
 
@@ -29,93 +29,93 @@ Scenario('Header elements', (I, navigationFragment) => {
   });
 });
 
-Scenario('Exchange transaction elements', (I, exchangeTxPage) => {
+Scenario('Exchange transaction elements', (I, transactionInfoPage) => {
   I.openExplorer('/tx/3hfT7iVcJ4MAVeaRU8yjEzWB3USHGBrVUa11M8QsscqW');
 
-  I.waitForVisible(exchangeTxPage.fields.type.text);
-  I.waitForVisible(exchangeTxPage.fields.type.icon);
-  I.waitForVisible(exchangeTxPage.fields.pair.amountAsset);
-  I.waitForVisible(exchangeTxPage.fields.pair.priceAsset);
-  I.waitForVisible(exchangeTxPage.fields.version);
-  I.waitForVisible(exchangeTxPage.fields.timestamp);
-  I.waitForVisible(exchangeTxPage.fields.block);
-  I.waitForVisible(exchangeTxPage.fields.proofs);
-  I.waitForVisible(exchangeTxPage.fields.sender);
-  I.waitForVisible(exchangeTxPage.fields.senderPublicKey);
-  I.waitForVisible(exchangeTxPage.fields.amount);
-  I.waitForVisible(exchangeTxPage.fields.price);
-  I.waitForVisible(exchangeTxPage.fields.total);
-  I.waitForVisible(exchangeTxPage.fields.fee);
-  I.waitForVisible(exchangeTxPage.fields.buyMatcherFee);
-  I.waitForVisible(exchangeTxPage.fields.sellMatcherFee);
-  I.waitForVisible(exchangeTxPage.fields.json.showButton);
+  I.waitForVisible(transactionInfoPage.fields.type.text);
+  I.waitForVisible(transactionInfoPage.fields.type.icon);
+  I.waitForVisible(transactionInfoPage.fields.pair.amountAsset);
+  I.waitForVisible(transactionInfoPage.fields.pair.priceAsset);
+  I.waitForVisible(transactionInfoPage.fields.version);
+  I.waitForVisible(transactionInfoPage.fields.timestamp);
+  I.waitForVisible(transactionInfoPage.fields.block);
+  I.waitForVisible(transactionInfoPage.fields.proofs);
+  I.waitForVisible(transactionInfoPage.fields.sender);
+  I.waitForVisible(transactionInfoPage.fields.senderPublicKey);
+  I.waitForVisible(transactionInfoPage.fields.amount);
+  I.waitForVisible(transactionInfoPage.fields.price);
+  I.waitForVisible(transactionInfoPage.fields.total);
+  I.waitForVisible(transactionInfoPage.fields.fee);
+  I.waitForVisible(transactionInfoPage.fields.buyMatcherFee);
+  I.waitForVisible(transactionInfoPage.fields.sellMatcherFee);
+  I.waitForVisible(transactionInfoPage.fields.json.showButton);
 });
 
-Scenario('Buy order elements', (I, exchangeTxPage) => {
+Scenario('Buy order elements', (I, transactionInfoPage) => {
   I.openExplorer('/tx/3hfT7iVcJ4MAVeaRU8yjEzWB3USHGBrVUa11M8QsscqW');
 
-  I.waitForVisible(exchangeTxPage.buyOrder.fields.orderId);
-  I.waitForVisible(exchangeTxPage.buyOrder.fields.timestamp);
-  I.waitForVisible(exchangeTxPage.buyOrder.fields.amount);
-  I.waitForVisible(exchangeTxPage.buyOrder.fields.price);
-  I.waitForVisible(exchangeTxPage.buyOrder.fields.sender);
-  I.waitForVisible(exchangeTxPage.buyOrder.fields.matcherFee);
+  I.waitForVisible(transactionInfoPage.buyOrder.fields.orderId);
+  I.waitForVisible(transactionInfoPage.buyOrder.fields.timestamp);
+  I.waitForVisible(transactionInfoPage.buyOrder.fields.amount);
+  I.waitForVisible(transactionInfoPage.buyOrder.fields.price);
+  I.waitForVisible(transactionInfoPage.buyOrder.fields.sender);
+  I.waitForVisible(transactionInfoPage.buyOrder.fields.matcherFee);
 });
 
-Scenario('Sell order elements', (I, exchangeTxPage) => {
+Scenario('Sell order elements', (I, transactionInfoPage) => {
   I.openExplorer('/tx/3hfT7iVcJ4MAVeaRU8yjEzWB3USHGBrVUa11M8QsscqW');
 
-  I.waitForVisible(exchangeTxPage.sellOrder.fields.orderId);
-  I.waitForVisible(exchangeTxPage.sellOrder.fields.timestamp);
-  I.waitForVisible(exchangeTxPage.sellOrder.fields.amount);
-  I.waitForVisible(exchangeTxPage.sellOrder.fields.price);
-  I.waitForVisible(exchangeTxPage.sellOrder.fields.sender);
-  I.waitForVisible(exchangeTxPage.sellOrder.fields.matcherFee);
+  I.waitForVisible(transactionInfoPage.sellOrder.fields.orderId);
+  I.waitForVisible(transactionInfoPage.sellOrder.fields.timestamp);
+  I.waitForVisible(transactionInfoPage.sellOrder.fields.amount);
+  I.waitForVisible(transactionInfoPage.sellOrder.fields.price);
+  I.waitForVisible(transactionInfoPage.sellOrder.fields.sender);
+  I.waitForVisible(transactionInfoPage.sellOrder.fields.matcherFee);
 });
 
-Scenario('Exchange transaction data parsing', (I, exchangeTxPage) => {
+Scenario('Exchange transaction data parsing', (I, transactionInfoPage) => {
   I.openExplorer('/tx/3hfT7iVcJ4MAVeaRU8yjEzWB3USHGBrVUa11M8QsscqW');
 
-  I.see('7', exchangeTxPage.fields.type.text);
-  I.see('Exchange', exchangeTxPage.fields.type.icon);
-  I.see('Kolin', exchangeTxPage.fields.pair.amountAsset);
-  I.see('WBTC', exchangeTxPage.fields.pair.priceAsset);
-  I.see('1', exchangeTxPage.fields.version);
-  I.see('18:06:38, 23.11.2018', exchangeTxPage.fields.timestamp);
-  I.see('1274917', exchangeTxPage.fields.block);
-  I.see('4VSVsRbxYHP11f7DidnWSoB8rd47bK7z4Nnc6q2gAtWeMKzqEgNEPrLzfBeStYV8rEu9TY4WceKyP1TBZ9coCHwJ', exchangeTxPage.fields.proofs);
-  I.see('3PJaDyprvekvPXPuAtxrapacuDJopgJRaU3', exchangeTxPage.fields.sender);
-  I.see('7kPFrHDiGw1rCm7LPszuECwWYL3dMf6iMifLRDJQZMzy', exchangeTxPage.fields.senderPublicKey);
-  I.see('1 Kolin', exchangeTxPage.fields.amount);
-  I.see('0.00000002', exchangeTxPage.fields.price);
-  I.see('0.00000002 WBTC', exchangeTxPage.fields.total);
-  I.see('0.003 WAVES', exchangeTxPage.fields.fee);
-  I.see('0.003 WAVES', exchangeTxPage.fields.buyMatcherFee);
-  I.see('0 WAVES', exchangeTxPage.fields.sellMatcherFee);
-  I.click(exchangeTxPage.fields.json.showButton);
-  I.waitForVisible(exchangeTxPage.fields.json.text);
+  I.see('7', transactionInfoPage.fields.type.text);
+  I.see('Exchange', transactionInfoPage.fields.type.icon);
+  I.see('Kolin', transactionInfoPage.fields.pair.amountAsset);
+  I.see('WBTC', transactionInfoPage.fields.pair.priceAsset);
+  I.see('1', transactionInfoPage.fields.version);
+  I.see('18:06:38, 23.11.2018', transactionInfoPage.fields.timestamp);
+  I.see('1274917', transactionInfoPage.fields.block);
+  I.see('4VSVsRbxYHP11f7DidnWSoB8rd47bK7z4Nnc6q2gAtWeMKzqEgNEPrLzfBeStYV8rEu9TY4WceKyP1TBZ9coCHwJ', transactionInfoPage.fields.proofs);
+  I.see('3PJaDyprvekvPXPuAtxrapacuDJopgJRaU3', transactionInfoPage.fields.sender);
+  I.see('7kPFrHDiGw1rCm7LPszuECwWYL3dMf6iMifLRDJQZMzy', transactionInfoPage.fields.senderPublicKey);
+  I.see('1 Kolin', transactionInfoPage.fields.amount);
+  I.see('0.00000002', transactionInfoPage.fields.price);
+  I.see('0.00000002 WBTC', transactionInfoPage.fields.total);
+  I.see('0.003 WAVES', transactionInfoPage.fields.fee);
+  I.see('0.003 WAVES', transactionInfoPage.fields.buyMatcherFee);
+  I.see('0 WAVES', transactionInfoPage.fields.sellMatcherFee);
+  I.click(transactionInfoPage.fields.json.showButton);
+  I.waitForVisible(transactionInfoPage.fields.json.text);
 });
 
-Scenario('Buy order data parsing', (I, exchangeTxPage) => {
+Scenario('Buy order data parsing', (I, transactionInfoPage) => {
   I.openExplorer('/tx/3hfT7iVcJ4MAVeaRU8yjEzWB3USHGBrVUa11M8QsscqW');
 
-  I.see('CzeqYGJoaTvmGKw7MD6iDe9RKWEAHnJeFQCe6ANVGc7F', exchangeTxPage.buyOrder.fields.orderId);
-  I.see('18:06:36, 23.11.2018', exchangeTxPage.buyOrder.fields.timestamp);
-  I.see('1 Kolin', exchangeTxPage.buyOrder.fields.amount);
-  I.see('0.00000002', exchangeTxPage.buyOrder.fields.price);
-  I.see('3PC6vbbRvhv1ojcJwfgPT61rgpgRC7jzvod', exchangeTxPage.buyOrder.fields.sender);
-  I.see('0.003 WAVES', exchangeTxPage.buyOrder.fields.matcherFee);
+  I.see('CzeqYGJoaTvmGKw7MD6iDe9RKWEAHnJeFQCe6ANVGc7F', transactionInfoPage.buyOrder.fields.orderId);
+  I.see('18:06:36, 23.11.2018', transactionInfoPage.buyOrder.fields.timestamp);
+  I.see('1 Kolin', transactionInfoPage.buyOrder.fields.amount);
+  I.see('0.00000002', transactionInfoPage.buyOrder.fields.price);
+  I.see('3PC6vbbRvhv1ojcJwfgPT61rgpgRC7jzvod', transactionInfoPage.buyOrder.fields.sender);
+  I.see('0.003 WAVES', transactionInfoPage.buyOrder.fields.matcherFee);
 });
 
-Scenario('Sell order data parsing', (I, exchangeTxPage) => {
+Scenario('Sell order data parsing', (I, transactionInfoPage) => {
   I.openExplorer('/tx/3hfT7iVcJ4MAVeaRU8yjEzWB3USHGBrVUa11M8QsscqW');
 
-  I.see('FDSe9L3n9m6BvgTzUhVUfQmbMtrptrzGMgzszRWvEwZi', exchangeTxPage.sellOrder.fields.orderId);
-  I.see('01:32:14, 20.11.2018', exchangeTxPage.sellOrder.fields.timestamp);
-  I.see('1,623,874.01 Kolin', exchangeTxPage.sellOrder.fields.amount);
-  I.see('0.00000002', exchangeTxPage.sellOrder.fields.price);
-  I.see('3PC1SeGGy5imdwL94Qc86jgaFja1MBSGHPw', exchangeTxPage.sellOrder.fields.sender);
-  I.see('0.003 WAVES', exchangeTxPage.sellOrder.fields.matcherFee);
+  I.see('FDSe9L3n9m6BvgTzUhVUfQmbMtrptrzGMgzszRWvEwZi', transactionInfoPage.sellOrder.fields.orderId);
+  I.see('01:32:14, 20.11.2018', transactionInfoPage.sellOrder.fields.timestamp);
+  I.see('1,623,874.01 Kolin', transactionInfoPage.sellOrder.fields.amount);
+  I.see('0.00000002', transactionInfoPage.sellOrder.fields.price);
+  I.see('3PC1SeGGy5imdwL94Qc86jgaFja1MBSGHPw', transactionInfoPage.sellOrder.fields.sender);
+  I.see('0.003 WAVES', transactionInfoPage.sellOrder.fields.matcherFee);
 });
 
 Data(testData).Scenario('Links in fields', async (current, I) => {

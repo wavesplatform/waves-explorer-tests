@@ -13,64 +13,64 @@ Scenario('Header elements', (I, navigationFragment) => {
   });
 });
 
-Scenario('Asset Burn transaction elements', (I, assetBurnTxPage) => {
+Scenario('Asset Burn transaction elements', (I, transactionInfoPage) => {
   I.openExplorer('/tx/B2qaXNqCa44zb9hvmiJp1UY5M4gxVKMqVhw63CN69y7F');
 
-  I.waitForVisible(assetBurnTxPage.fields.type.text);
-  I.waitForVisible(assetBurnTxPage.fields.type.icon);
-  I.waitForVisible(assetBurnTxPage.fields.version);
-  I.waitForVisible(assetBurnTxPage.fields.timestamp);
-  I.waitForVisible(assetBurnTxPage.fields.block);
-  I.waitForVisible(assetBurnTxPage.fields.proofs);
+  I.waitForVisible(transactionInfoPage.fields.type.text);
+  I.waitForVisible(transactionInfoPage.fields.type.icon);
+  I.waitForVisible(transactionInfoPage.fields.version);
+  I.waitForVisible(transactionInfoPage.fields.timestamp);
+  I.waitForVisible(transactionInfoPage.fields.block);
+  I.waitForVisible(transactionInfoPage.fields.proofs);
   
-  I.waitForVisible(assetBurnTxPage.fields.amount);
+  I.waitForVisible(transactionInfoPage.fields.amount);
 
-  I.waitForVisible(assetBurnTxPage.fields.fee);
-  I.waitForVisible(assetBurnTxPage.fields.sender);
-  I.waitForVisible(assetBurnTxPage.fields.senderPublicKey);
-  I.waitForVisible(assetBurnTxPage.fields.json.showButton);
+  I.waitForVisible(transactionInfoPage.fields.fee);
+  I.waitForVisible(transactionInfoPage.fields.sender);
+  I.waitForVisible(transactionInfoPage.fields.senderPublicKey);
+  I.waitForVisible(transactionInfoPage.fields.json.showButton);
 });
 
-Scenario('Asset Burn data parsing', (I, assetBurnTxPage) => {
+Scenario('Asset Burn data parsing', (I, transactionInfoPage) => {
   I.openExplorer('/tx/B2qaXNqCa44zb9hvmiJp1UY5M4gxVKMqVhw63CN69y7F');
 
-  I.see('6', assetBurnTxPage.fields.type.text);
-  I.see('Asset Burn', assetBurnTxPage.fields.type.icon);
-  I.see('2', assetBurnTxPage.fields.version);
-  I.see('14:57:11, 26.10.2018', assetBurnTxPage.fields.timestamp);
-  I.see('1233680', assetBurnTxPage.fields.block);
-  I.see('4FmG8sxjKtZKMAPUT8zxjXZ7rbHGxyDL5Sq76ZYb3AxW9s4yXmEoM1YAXyco6ZJ1TCJnuLvgLnM17VP3kv2Hmpmt', assetBurnTxPage.fields.proofs);
+  I.see('6', transactionInfoPage.fields.type.text);
+  I.see('Asset Burn', transactionInfoPage.fields.type.icon);
+  I.see('2', transactionInfoPage.fields.version);
+  I.see('14:57:11, 26.10.2018', transactionInfoPage.fields.timestamp);
+  I.see('1233680', transactionInfoPage.fields.block);
+  I.see('4FmG8sxjKtZKMAPUT8zxjXZ7rbHGxyDL5Sq76ZYb3AxW9s4yXmEoM1YAXyco6ZJ1TCJnuLvgLnM17VP3kv2Hmpmt', transactionInfoPage.fields.proofs);
   
-  I.see('1 Golden', assetBurnTxPage.fields.amount);
+  I.see('1 Golden', transactionInfoPage.fields.amount);
 
-  I.see('0.001 WAVES', assetBurnTxPage.fields.fee);
-  I.see('3P5r1EXZwxJ21f3T3zvjx61RtY52QV4fb18', assetBurnTxPage.fields.sender);
-  I.see('27C8ksVhVFUXyngF1F8TfyCGLmkDMsm2QuTv4VvhBpJU', assetBurnTxPage.fields.senderPublicKey);
+  I.see('0.001 WAVES', transactionInfoPage.fields.fee);
+  I.see('3P5r1EXZwxJ21f3T3zvjx61RtY52QV4fb18', transactionInfoPage.fields.sender);
+  I.see('27C8ksVhVFUXyngF1F8TfyCGLmkDMsm2QuTv4VvhBpJU', transactionInfoPage.fields.senderPublicKey);
 
-  I.click(assetBurnTxPage.fields.json.showButton);
-  I.waitForVisible(assetBurnTxPage.fields.json.text);
+  I.click(transactionInfoPage.fields.json.showButton);
+  I.waitForVisible(transactionInfoPage.fields.json.text);
 });
 
-Scenario('Link to Block info', (I, assetBurnTxPage) => {
+Scenario('Link to Block info', (I, transactionInfoPage) => {
   I.openExplorer('/tx/B2qaXNqCa44zb9hvmiJp1UY5M4gxVKMqVhw63CN69y7F');
 
-  I.waitForVisible(assetBurnTxPage.fields.block);
-  I.click(assetBurnTxPage.fields.block);
+  I.waitForVisible(transactionInfoPage.fields.block);
+  I.click(transactionInfoPage.fields.block);
   I.seeCurrentUrlEquals('/blocks/1233680');
 });
 
-Scenario('Link to Amount asset', (I, assetBurnTxPage) => {
+Scenario('Link to Amount asset', (I, transactionInfoPage) => {
   I.openExplorer('/tx/B2qaXNqCa44zb9hvmiJp1UY5M4gxVKMqVhw63CN69y7F');
 
-  I.waitForVisible(assetBurnTxPage.fields.amountAsset);
-  I.click(assetBurnTxPage.fields.amountAsset);
+  I.waitForVisible(transactionInfoPage.fields.amountAsset);
+  I.click(transactionInfoPage.fields.amountAsset);
   I.seeCurrentUrlEquals('/assets/H4r9fS7bn78CPhj7cjTYUMHz3idB2ZxRPx5HcjFRJJCX');
 });
 
-Scenario('Link to Sender', (I, assetBurnTxPage) => {
+Scenario('Link to Sender', (I, transactionInfoPage) => {
   I.openExplorer('/tx/B2qaXNqCa44zb9hvmiJp1UY5M4gxVKMqVhw63CN69y7F');
 
-  I.waitForVisible(assetBurnTxPage.fields.sender);
-  I.click(assetBurnTxPage.fields.sender);
+  I.waitForVisible(transactionInfoPage.fields.sender);
+  I.click(transactionInfoPage.fields.sender);
   I.seeCurrentUrlEquals('/address/3P5r1EXZwxJ21f3T3zvjx61RtY52QV4fb18/tx');
 });
