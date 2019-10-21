@@ -32,6 +32,13 @@ exports.config = {
     wdio: {
       enabled: true,
       services: ['selenium-standalone']
+    },
+    "allure": {}
+  },
+  
+  multiple: {
+    parallel: {
+      chunks: 4
     }
   }
 }
