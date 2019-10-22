@@ -41,4 +41,9 @@ exports.config = {
       chunks: 4
     }
   }
+};
+
+if(process.env.TEST_URL != undefined) {
+  exports.config.helpers.WebDriver.url = process.env.TEST_URL;
+  console.log("TEST_URL = " + process.env.TEST_URL);
 }
