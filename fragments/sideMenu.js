@@ -17,7 +17,8 @@ module.exports = {
     generalInfo: {css: 'div.menu-item.icon-general a'},
     blocks: {css: 'div.menu-item.icon-blocks a'},
     peers: {css: 'div.menu-item.icon-peers a'},
-    nodes: {css: 'div.menu-item.icon-nodes a'}
+    nodes: {css: 'div.menu-item.icon-nodes a'},
+    faucet: {css: 'div.menu-item.icon-faucet a'}
   },
 
   footer: {
@@ -35,13 +36,13 @@ module.exports = {
     siteLink: {css: 'div.menu-footer a.fade'}
   },
 
-  changeNetwork(network) {
-    within(this.root, function() {
+  changeNetwork(networkName) {
+    within(this.root, () => {
       I.waitForVisible(this.network.current);
       I.click(this.network.current);
 
-      I.waitForVisible(this.network.getByName(network));
-      I.click(this.network.getByName(network));
+      I.waitForVisible(this.network.getByName(networkName));
+      I.click(this.network.getByName(networkName));
     });
   }
 }

@@ -12,6 +12,8 @@ Scenario('Check elements', (I, sideMenuFragment) => {
     I.waitForVisible(sideMenuFragment.links.blocks);
     I.waitForVisible(sideMenuFragment.links.peers);
     I.waitForVisible(sideMenuFragment.links.nodes);
+    
+    I.waitForInvisible(sideMenuFragment.links.faucet);
   });
 });
 
