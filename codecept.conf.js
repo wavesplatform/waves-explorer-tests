@@ -6,7 +6,19 @@ exports.config = {
       windowSize: "1920x1080",
       restart: false,
       url: 'https://wavesexplorer.com',
-      browser: 'chrome'
+      browser: 'chrome',
+      "desiredCapabilities": {
+        "acceptInsecureCerts": true,
+        "chromeOptions": {
+           "args": [ 
+            "--no-sandbox",
+            // "--headless",
+            "--disable-gpu",
+            "--window-size=1920,1080",
+            "--disable-dev-shm-usage"
+            ]
+         }
+      }
     }
   },
   include: {
@@ -16,11 +28,13 @@ exports.config = {
     peersPage: './pages/peers.js',
     nodesPage: './pages/nodes.js',
     transactionInfoPage: './pages/transactionInfo.js',
+    assetInfoPage: './pages/assetInfo.js',
 
     sideMenuFragment: './fragments/sideMenu.js',
     searchBarFragment: './fragments/searchBar.js',
     settingsFragment: './fragments/settings.js',
     navigationFragment: './fragments/navigation.js',
+    scriptFieldFragment: './fragments/scriptField.js',
 
     I: './custom_steps.js'
   },

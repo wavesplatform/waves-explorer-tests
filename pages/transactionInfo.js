@@ -1,4 +1,4 @@
-const { I } = inject();
+const { I, scriptFieldFragment } = inject();
 
 module.exports = {
 
@@ -59,16 +59,7 @@ module.exports = {
 
     asset: {xpath: '//div[.="Asset"]//following-sibling::*//a'},
 
-    script: {
-      text: {xpath: '//div[.="Script"]//following-sibling::*//pre'},
-      viewType: {
-        select: {xpath: '//div[.="Script"]//following-sibling::*//span'},
-        base64: {xpath: '//div[.="Script"]//following-sibling::*//div[.="Base64"][@class="select-list-expanded"]'},
-        decompiled: {xpath: '//div[.="Script"]//following-sibling::*//div[.="Decompiled"][@class="select-list-expanded"]'}
-      },
-      copy: {xpath: '//div[.="Script"]//following-sibling::*//div[contains(@class, "btn-copy")]'},
-      emptyIcon: {xpath: '//div[.="Script"]//following-sibling::*//div[contains(@class, "empty-icon-wrapper")]'}
-    },
+    script: scriptFieldFragment.script,
 
     sponsoredFee: {xpath: '//div[.="Sponsored Fee"]//following-sibling::*'},
     sponsoredFeeAsset: {xpath: '//div[.="Sponsored Fee"]//following-sibling::*//a'},
@@ -117,9 +108,6 @@ module.exports = {
   },
 
   switchToDecompiledView() {
-    I.waitForVisible(this.fields.script.viewType.select);
-    I.click(this.fields.script.viewType.select);
-    I.waitForVisible(this.fields.script.viewType.decompiled);
-    I.click(this.fields.script.viewType.decompiled);
+    scriptFieldFragment.switchToDecompiledView();
   }
 }
