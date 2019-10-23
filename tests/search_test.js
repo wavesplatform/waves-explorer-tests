@@ -61,3 +61,14 @@ Scenario('Search by Block Signature', (I, searchBarFragment) => {
   searchBarFragment.search(blockSignature);
   I.seeCurrentUrlEquals('/blocks/1000000');
 });
+
+Scenario('Invalid query (Not found)', (I, searchBarFragment) => {
+  var query = 'SomethingNotFound';
+
+  I.openExplorer();
+  searchBarFragment.search(query);
+
+  within(searchBarFragment.root, () => {
+    I.waitForVisible(searchBarFragment.error);
+  });
+});

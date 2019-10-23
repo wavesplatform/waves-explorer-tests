@@ -37,3 +37,14 @@ Scenario('Search by Address', (I, searchBarFragment) => {
   searchBarFragment.search(testAddress);
   I.seeCurrentUrlEquals(`/testnet/address/${testAddress}/tx`);
 });
+
+Scenario('Search Mainnet Address (Not found)', (I, searchBarFragment) => {
+  var testAddress = '3PCAB4sHXgvtu5NPoen6EXR5yaNbvsEA8Fj';
+
+  I.openExplorer('/testnet');
+  searchBarFragment.search(testAddress);
+
+  within(searchBarFragment.root, () => {
+    I.waitForVisible(searchBarFragment.error);
+  });
+});
