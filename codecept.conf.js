@@ -29,6 +29,7 @@ exports.config = {
     nodesPage: './pages/nodes.js',
     transactionInfoPage: './pages/transactionInfo.js',
     assetInfoPage: './pages/assetInfo.js',
+    addressInfoPage: './pages/addressInfo.js',
 
     sideMenuFragment: './fragments/sideMenu.js',
     searchBarFragment: './fragments/searchBar.js',
