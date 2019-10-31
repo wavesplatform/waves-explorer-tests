@@ -2,7 +2,7 @@ const { I } = inject();
 
 module.exports = {
 
-  title: {css: '#xxxxx > div.loaderWrapper > div > div > span.title'},
+  title: {css: 'div.loaderWrapper > div > div > span.title'},
 
   header: {
     node: {css: 'table > thead > tr > th:nth-child(1)'},
