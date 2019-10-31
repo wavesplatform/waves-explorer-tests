@@ -22,7 +22,7 @@ module.exports = {
   },
 
   footer: {
-    block: {css: '#xxxxx > div.menu.grid-item-fixed.lg-hide > div.menu-footer'},
+    block: {css: 'div.container.grid div.menu div.menu-footer'},
     version: {xpath: '//div[contains(@class, "menu-footer")]//*[contains(text(),"Version")]'},
     socialLinks: {
       github: {css: 'a.social.github'},
