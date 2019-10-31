@@ -12,7 +12,7 @@ exports.config = {
         "chromeOptions": {
            "args": [ 
             "--no-sandbox",
-            // "--headless",
+            "--headless",
             "--disable-gpu",
             "--window-size=1920,1080",
             "--disable-dev-shm-usage"
