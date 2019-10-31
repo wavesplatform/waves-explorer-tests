@@ -12,6 +12,11 @@ module.exports = function() {
       }
       this.waitForInvisible({css: 'img[alt="Loading..."]'}, 10);
       this.waitForInvisible({css: 'div.loading'}, 10);
+    },
+
+    formatDateToExplorerFormat: function(date) {
+      var format = require('date-fns').format;
+      return format(date, 'dd.MM.yyyy, HH:mm:ss');
     }
   });
 }
