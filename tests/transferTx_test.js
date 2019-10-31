@@ -37,7 +37,10 @@ Scenario('Transaction data parsing', (I, transactionInfoPage) => {
   I.see('4', transactionInfoPage.fields.type.text);
   I.see('Asset Transfer', transactionInfoPage.fields.type.icon);
   I.see('2', transactionInfoPage.fields.version);
-  I.see('17:39:29, 11.12.2018', transactionInfoPage.fields.timestamp);
+
+  var testDate = new Date(1544539169672);
+  I.see(I.formatDateToExplorerFormat(testDate), transactionInfoPage.fields.timestamp);
+
   I.see('1301279', transactionInfoPage.fields.block);
   I.see('26A3sYdsv97MjQyEHMrufwwMWHN6X9W7eRcXSvoSd6tTNmhKE4MWtQnfHaZq9N1epaTPKg7BBx7zXgx351o6ykrF', transactionInfoPage.fields.proofs);
   I.see('3PEDGbdcSYAorLoV4oDVSJPTezGUPFrZj8f', transactionInfoPage.fields.recipient);

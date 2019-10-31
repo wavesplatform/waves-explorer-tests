@@ -40,7 +40,10 @@ Scenario('Asset Issue data parsing', (I, transactionInfoPage) => {
   I.see('3', transactionInfoPage.fields.type.text);
   I.see('Asset Issue', transactionInfoPage.fields.type.icon);
   I.see('2', transactionInfoPage.fields.version);
-  I.see('14:56:08, 26.10.2018', transactionInfoPage.fields.timestamp);
+  
+  var testDate = new Date(1540554968969);
+  I.see(I.formatDateToExplorerFormat(testDate), transactionInfoPage.fields.timestamp);
+
   I.see('1233680', transactionInfoPage.fields.block);
   I.see('5rbQ8QBqLGgzjJpwJ2KEsV5KrRpqz1vgCbFxk2dqK53JfEXfAhZdaiTZ3fGEu7Nuy9J4aTAuR5Bb7TEPwbxBavyz', transactionInfoPage.fields.proofs);
   

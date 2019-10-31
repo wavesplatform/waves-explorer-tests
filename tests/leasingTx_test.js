@@ -37,7 +37,10 @@ Scenario('Lease transaction data parsing', (I, transactionInfoPage) => {
   I.see('8', transactionInfoPage.fields.type.text);
   I.see('Lease', transactionInfoPage.fields.type.icon);
   I.see('2', transactionInfoPage.fields.version);
-  I.see('17:17:35, 03.06.2019', transactionInfoPage.fields.timestamp);
+
+  var testDate = new Date(1559571455493);
+  I.see(I.formatDateToExplorerFormat(testDate), transactionInfoPage.fields.timestamp);
+
   I.see('1555444', transactionInfoPage.fields.block);
   I.see('3MMDkzm5nAoZhUbdpjnjXE9JHVuwZsRYL3ndTV7ge9vu1F2bvy7nEHPncFyRh5RwpAf75CmTvTHJuqC1qDrEfnBD', transactionInfoPage.fields.proofs);
   I.see('0.1 WAVES', transactionInfoPage.fields.amount);

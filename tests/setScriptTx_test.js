@@ -39,7 +39,10 @@ Scenario('Set Script data parsing', (I, transactionInfoPage) => {
   I.see('13', transactionInfoPage.fields.type.text);
   I.see('Script', transactionInfoPage.fields.type.icon);
   I.see('1', transactionInfoPage.fields.version);
-  I.see('15:00:15, 26.10.2018', transactionInfoPage.fields.timestamp);
+
+  var testDate = new Date(1540555215015);
+  I.see(I.formatDateToExplorerFormat(testDate), transactionInfoPage.fields.timestamp);
+
   I.see('1233683', transactionInfoPage.fields.block);
   I.see('Y3d4RHae6pv6PemcWypoRNdzMJASnv84hKVVbdnx8aiGcFeFCDsG4yVAzGEUxZK9fTm1YfPrQQ3MnGB1FMEaVPg', transactionInfoPage.fields.proofs);
   

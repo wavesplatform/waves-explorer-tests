@@ -37,7 +37,10 @@ Scenario('Sponsorship data parsing', (I, transactionInfoPage) => {
   I.see('14', transactionInfoPage.fields.type.text);
   I.see('Sponsorship', transactionInfoPage.fields.type.icon);
   I.see('1', transactionInfoPage.fields.version);
-  I.see('14:58:00, 26.10.2018', transactionInfoPage.fields.timestamp);
+
+  var testDate = new Date(1540555080577);
+  I.see(I.formatDateToExplorerFormat(testDate), transactionInfoPage.fields.timestamp);
+
   I.see('1233681', transactionInfoPage.fields.block);
   I.see('23YZYYDGa48a3SUrNuURFGor4vtSMhwWteDVwTniW3E4LFXMtAdPoUadsgKqWqqKXsR5rPX8HsEbgwLeU45vBgz1', transactionInfoPage.fields.proofs);
   I.see('1 Golden', transactionInfoPage.fields.sponsoredFee);

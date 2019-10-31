@@ -38,7 +38,10 @@ Scenario('Asset Info data parsing', (I, assetInfoPage) => {
 
   I.see('AktgDWQF1rBXkjYf7MWjLqcZt8knZyLCTJtmH7jnEMKS', assetInfoPage.fields.transactionId);
   I.see('1394406', assetInfoPage.fields.issueHeight);
-  I.see('12:19:42, 13.02.2019', assetInfoPage.fields.issueTimestamp);
+
+  var testDate = new Date(1550049582480);
+  I.see(I.formatDateToExplorerFormat(testDate), assetInfoPage.fields.timestamp);
+
   I.see('3PN2xBwULEHULvB1mZA5d962ZppTAfiSweb', assetInfoPage.fields.issuer);
   I.see('Damnation', assetInfoPage.fields.assetName);
   I.see('Burn - false Transfer >= 5 Order <= 86400 Exchange - price >= 666000, amount >= 5', assetInfoPage.fields.description);

@@ -42,7 +42,10 @@ Scenario('Mass Transfer data parsing', (I, transactionInfoPage) => {
   I.see('11', transactionInfoPage.fields.type.text);
   I.see('Mass Payment', transactionInfoPage.fields.type.icon);
   I.see('1', transactionInfoPage.fields.version);
-  I.see('22:54:01, 04.11.2018', transactionInfoPage.fields.timestamp);
+
+  var testDate = new Date(1541361241639);
+  I.see(I.formatDateToExplorerFormat(testDate), transactionInfoPage.fields.timestamp);
+
   I.see('1247324', transactionInfoPage.fields.block);
   I.see('67qbbtvYYPAsEq7aTTnHrbb72k9TFzsUHG7Anvh6RsGDa6UPeSX1jz5jmaXERe8wZodsDSxhzVyt4f5k6eS77DWL', transactionInfoPage.fields.proofs);
   I.see('0.000014 WAVES', transactionInfoPage.fields.totalAmount);

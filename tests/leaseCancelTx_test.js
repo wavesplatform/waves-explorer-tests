@@ -35,7 +35,10 @@ Scenario('Lease Cancel data parsing', (I, transactionInfoPage) => {
   I.see('9', transactionInfoPage.fields.type.text);
   I.see('Lease Cancel', transactionInfoPage.fields.type.icon);
   I.see('2', transactionInfoPage.fields.version);
-  I.see('14:47:17, 26.10.2018', transactionInfoPage.fields.timestamp);
+
+  var testDate = new Date(1540554437768);
+  I.see(I.formatDateToExplorerFormat(testDate), transactionInfoPage.fields.timestamp);
+
   I.see('1233672', transactionInfoPage.fields.block);
   I.see('354bxgaMx82nJ8vVKx77AESj9VCNuYjWfTq6Uia7kDR8GfzkAgCqRbvksZXNwQReT3mPfSdrvTYRY6BTTNfhcbf', transactionInfoPage.fields.proofs);
   I.see('665kiShWB2AJDwhh8E1AATmKdRzYEqKRpGmNcYobXVzr', transactionInfoPage.fields.leaseId);

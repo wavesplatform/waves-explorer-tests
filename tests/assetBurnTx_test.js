@@ -37,7 +37,10 @@ Scenario('Asset Burn data parsing', (I, transactionInfoPage) => {
   I.see('6', transactionInfoPage.fields.type.text);
   I.see('Asset Burn', transactionInfoPage.fields.type.icon);
   I.see('2', transactionInfoPage.fields.version);
-  I.see('14:57:11, 26.10.2018', transactionInfoPage.fields.timestamp);
+
+  var testDate = new Date(1540555031403);
+  I.see(I.formatDateToExplorerFormat(testDate), transactionInfoPage.fields.timestamp);
+
   I.see('1233680', transactionInfoPage.fields.block);
   I.see('4FmG8sxjKtZKMAPUT8zxjXZ7rbHGxyDL5Sq76ZYb3AxW9s4yXmEoM1YAXyco6ZJ1TCJnuLvgLnM17VP3kv2Hmpmt', transactionInfoPage.fields.proofs);
   

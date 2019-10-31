@@ -38,7 +38,10 @@ Scenario('Asset Reissue data parsing', (I, transactionInfoPage) => {
   I.see('5', transactionInfoPage.fields.type.text);
   I.see('Asset Reissue', transactionInfoPage.fields.type.icon);
   I.see('2', transactionInfoPage.fields.version);
-  I.see('14:56:54, 26.10.2018', transactionInfoPage.fields.timestamp);
+
+  var testDate = new Date(1540555014220);
+  I.see(I.formatDateToExplorerFormat(testDate), transactionInfoPage.fields.timestamp);
+
   I.see('1233680', transactionInfoPage.fields.block);
   I.see('U2vLjrcCDkaDva21XTp4eUUySV3BFVRPyRiUQBXUXAQAQgir8AFnoVmv5AKFKWpcccH6TqkFGc2EUE7CMueQGY3', transactionInfoPage.fields.proofs);
   

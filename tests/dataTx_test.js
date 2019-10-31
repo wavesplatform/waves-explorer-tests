@@ -35,7 +35,10 @@ Scenario('Data TX data parsing', (I, transactionInfoPage) => {
   I.see('12', transactionInfoPage.fields.type.text);
   I.see('Data', transactionInfoPage.fields.type.icon);
   I.see('1', transactionInfoPage.fields.version);
-  I.see('18:44:20, 01.02.2019', transactionInfoPage.fields.timestamp);
+
+  var testDate = new Date(1549035860466);
+  I.see(I.formatDateToExplorerFormat(testDate), transactionInfoPage.fields.timestamp);
+
   I.see('1377361', transactionInfoPage.fields.block);
   I.see('4xse9FCVwAb7BzzmnwSwR7gBFxM4fTJfhnbG3dkSN77vmrgXEuC43NWVc6R47WKijiUUAMLrhfWZSBSvZirZ43wn', transactionInfoPage.fields.proofs);
   I.see('"value": "base64:AbCd"', transactionInfoPage.fields.data);

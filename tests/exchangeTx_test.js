@@ -81,7 +81,10 @@ Scenario('Exchange transaction data parsing', (I, transactionInfoPage) => {
   I.see('Kolin', transactionInfoPage.fields.pair.amountAsset);
   I.see('WBTC', transactionInfoPage.fields.pair.priceAsset);
   I.see('1', transactionInfoPage.fields.version);
-  I.see('18:06:38, 23.11.2018', transactionInfoPage.fields.timestamp);
+
+  var testDate = new Date(1542985598336);
+  I.see(I.formatDateToExplorerFormat(testDate), transactionInfoPage.fields.timestamp);
+
   I.see('1274917', transactionInfoPage.fields.block);
   I.see('4VSVsRbxYHP11f7DidnWSoB8rd47bK7z4Nnc6q2gAtWeMKzqEgNEPrLzfBeStYV8rEu9TY4WceKyP1TBZ9coCHwJ', transactionInfoPage.fields.proofs);
   I.see('3PJaDyprvekvPXPuAtxrapacuDJopgJRaU3', transactionInfoPage.fields.sender);
@@ -100,7 +103,10 @@ Scenario('Buy order data parsing', (I, transactionInfoPage) => {
   I.openExplorer('/tx/3hfT7iVcJ4MAVeaRU8yjEzWB3USHGBrVUa11M8QsscqW');
 
   I.see('CzeqYGJoaTvmGKw7MD6iDe9RKWEAHnJeFQCe6ANVGc7F', transactionInfoPage.buyOrder.fields.orderId);
-  I.see('18:06:36, 23.11.2018', transactionInfoPage.buyOrder.fields.timestamp);
+
+  var testDate = new Date(1542985596662);
+  I.see(I.formatDateToExplorerFormat(testDate), transactionInfoPage.buyOrder.fields.timestamp);
+
   I.see('1 Kolin', transactionInfoPage.buyOrder.fields.amount);
   I.see('0.00000002', transactionInfoPage.buyOrder.fields.price);
   I.see('3PC6vbbRvhv1ojcJwfgPT61rgpgRC7jzvod', transactionInfoPage.buyOrder.fields.sender);
@@ -111,7 +117,10 @@ Scenario('Sell order data parsing', (I, transactionInfoPage) => {
   I.openExplorer('/tx/3hfT7iVcJ4MAVeaRU8yjEzWB3USHGBrVUa11M8QsscqW');
 
   I.see('FDSe9L3n9m6BvgTzUhVUfQmbMtrptrzGMgzszRWvEwZi', transactionInfoPage.sellOrder.fields.orderId);
-  I.see('01:32:14, 20.11.2018', transactionInfoPage.sellOrder.fields.timestamp);
+
+  var testDate = new Date(1542666734675);
+  I.see(I.formatDateToExplorerFormat(testDate), transactionInfoPage.sellOrder.fields.timestamp);
+
   I.see('1,623,874.01 Kolin', transactionInfoPage.sellOrder.fields.amount);
   I.see('0.00000002', transactionInfoPage.sellOrder.fields.price);
   I.see('3PC1SeGGy5imdwL94Qc86jgaFja1MBSGHPw', transactionInfoPage.sellOrder.fields.sender);
