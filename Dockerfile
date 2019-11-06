@@ -1,6 +1,7 @@
 FROM node:lts-alpine
 ARG TESTURL
 ENV TEST_URL=${TESTURL}
+ENV SELENIUM_HOST='hub'
 
 WORKDIR /explorer
 COPY . .
