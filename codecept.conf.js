@@ -7,18 +7,7 @@ exports.config = {
       restart: false,
       url: 'https://wavesexplorer.com',
       browser: 'chrome',
-      "desiredCapabilities": {
-        "acceptInsecureCerts": true,
-        "chromeOptions": {
-           "args": [ 
-            "--no-sandbox",
-            "--headless",
-            "--disable-gpu",
-            "--window-size=1920,1080",
-            "--disable-dev-shm-usage"
-            ]
-         }
-      }
+      host: 'localhost'
     }
   },
   include: {
@@ -45,7 +34,7 @@ exports.config = {
 
   plugins: {
     wdio: {
-      enabled: true,
+      enabled: false,
       services: ['selenium-standalone']
     },
     "allure": {}
@@ -61,4 +50,9 @@ exports.config = {
 if(process.env.TEST_URL != undefined) {
   exports.config.helpers.WebDriver.url = process.env.TEST_URL;
   console.log("TEST_URL = " + process.env.TEST_URL);
+}
+
+if(process.env.SELENIUM_HOST != undefined) {
+  exports.config.helpers.WebDriver.host = process.env.SELENIUM_HOST;
+  console.log("SELENIUM_HOST = " + process.env.SELENIUM_HOST);
 }

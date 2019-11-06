@@ -1,0 +1,36 @@
+version: '3'
+services:
+  firefox:
+    image: selenium/node-firefox:latest
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - hub
+    environment:
+      HUB_HOST: hub
+      NODE_MAX_SESSION: 4
+      NODE_MAX_INSTANCES: 4
+
+  chrome:
+    image: selenium/node-chrome:latest
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - hub
+    environment:
+      HUB_HOST: hub
+      NODE_MAX_SESSION: 4
+      NODE_MAX_INSTANCES: 4
+
+  hub:
+    image: selenium/hub:latest
+
+  explorer:
+    volumes: 
+      - "./output:/explorer/output"
+    build: .
+    command: ./start.sh
+    depends_on:
+      - hub
+      - firefox
+      - chrome
