@@ -8,8 +8,6 @@ services:
       - hub
     environment:
       HUB_HOST: hub
-      NODE_MAX_SESSION: 4
-      NODE_MAX_INSTANCES: 4
 
   chrome:
     image: selenium/node-chrome:latest
@@ -19,18 +17,20 @@ services:
       - hub
     environment:
       HUB_HOST: hub
-      NODE_MAX_SESSION: 4
-      NODE_MAX_INSTANCES: 4
 
   hub:
     image: selenium/hub:latest
 
   explorer:
+
     volumes: 
       - "./output:/explorer/output"
-    build: .
+    build: 
+      context: .
+      args:
+        - TESTURL=${TEST_URL}
     command: ./start.sh
-    depends_on:
+    depends_on: 
       - hub
       - firefox
       - chrome

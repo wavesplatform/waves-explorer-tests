@@ -1,4 +1,6 @@
 FROM node:lts-alpine
+ARG TESTURL
+ENV TEST_URL=${TESTURL}
 
 WORKDIR /explorer
 COPY . .
@@ -6,4 +8,4 @@ COPY . .
 RUN npm i
 RUN npm i -g webdriverio
 
-CMD ./start.sh
+ENTRYPOINT ["./start.sh"]
