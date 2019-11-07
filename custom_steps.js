@@ -15,8 +15,12 @@ module.exports = function() {
     },
 
     formatDateToExplorerFormat: function(date) {
+      return this.formatDateToFormat(date, 'dd.MM.yyyy, HH:mm:ss');
+    },
+
+    formatDateToFormat: function(date, formatSting) {
       var format = require('date-fns').format;
-      return format(date, 'dd.MM.yyyy, HH:mm:ss');
+      return format(date, formatSting);
     }
   });
 }

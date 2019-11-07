@@ -149,8 +149,10 @@ Scenario('Transactions list', (I, addressInfoPage) => {
 
   I.see('GtqqMURSueBqmoToRKFNWo6QY2qxyfmDbh', addressInfoPage.transactionsTable.fields.id);
   I.see('Asset Transfer', addressInfoPage.transactionsTable.fields.id);
-  I.see('22.10.2019', addressInfoPage.transactionsTable.fields.timestamp);
-  I.see('11:41:43', addressInfoPage.transactionsTable.fields.timestamp);
+  var txDate = new Date(1571733703842);
+  I.see(I.formatDateToFormat(txDate, 'HH:mm:ss'), addressInfoPage.transactionsTable.fields.timestamp);
+  I.see(I.formatDateToFormat(txDate, 'dd.MM.yyyy'), addressInfoPage.transactionsTable.fields.timestamp);
+  
   I.see('3P94WBB8fPrFsrBRugeyT9xFymZEbHMaLWW', addressInfoPage.transactionsTable.fields.sender);
   I.see('PC6vbbRvhv1ojcJwfgPT61rgpgRC7jzvod', addressInfoPage.transactionsTable.fields.sender);
   I.see('0.46600246 WAVES', addressInfoPage.transactionsTable.fields.amount);
