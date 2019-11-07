@@ -11,6 +11,18 @@ $ npm i
 ```
 
 ### Running tests
+Need running local Selenium on port 4444
+
+Or enable selenium-standalone plugin in config file
+
+```javascript
+  plugins: {
+    wdio: {
+      enabled: true,
+      services: ['selenium-standalone']
+    },
+```
+
 #### All tests
 
 ```sh
