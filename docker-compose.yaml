@@ -1,0 +1,35 @@
+version: '3'
+services:
+  firefox:
+    image: selenium/node-firefox:latest
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - hub
+    environment:
+      HUB_HOST: hub
+
+  chrome:
+    image: selenium/node-chrome:latest
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - hub
+    environment:
+      HUB_HOST: hub
+
+  hub:
+    image: selenium/hub:latest
+
+  explorer:
+
+    volumes: 
+      - "./output:/explorer/output"
+    build: 
+      context: .
+      args:
+        - TESTURL=${TEST_URL}
+    depends_on: 
+      - hub
+      - firefox
+      - chrome
