@@ -29,7 +29,6 @@ services:
       context: .
       args:
         - TESTURL=${TEST_URL}
-    entrypoint: chmod 755 ./start.sh && ./start.sh
     depends_on: 
       - hub
       - firefox
