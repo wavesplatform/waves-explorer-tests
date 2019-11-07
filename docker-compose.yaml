@@ -8,6 +8,8 @@ services:
       - hub
     environment:
       HUB_HOST: hub
+      NODE_MAX_SESSION: 4
+      NODE_MAX_INSTANCES: 4
 
   chrome:
     image: selenium/node-chrome:latest
@@ -17,6 +19,8 @@ services:
       - hub
     environment:
       HUB_HOST: hub
+      NODE_MAX_SESSION: 4
+      NODE_MAX_INSTANCES: 4      
 
   hub:
     image: selenium/hub:latest

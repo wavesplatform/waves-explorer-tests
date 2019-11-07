@@ -44,5 +44,5 @@ $ TEST_URL=https://stage.wavesexplorer.com npx codeceptjs run
 Compose with included selenium grid as service
 #### Run all tests
 ```sh
-$ TEST_URL=https://wavesexplorer.com docker-compose up --abort-on-container-exit
+$ TEST_URL=https://wavesexplorer.com docker-compose up --abort-on-container-exit --build
 ```
