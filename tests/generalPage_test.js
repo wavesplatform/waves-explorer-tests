@@ -33,9 +33,9 @@ Scenario('UTX elements', (I, generalPage) => {
   I.openExplorer();
 
   I.waitForVisible(generalPage.utx.block);
-  I.waitForVisible(generalPage.utx.title);
+  I.waitForVisible(generalPage.utx.title, 30);
 
-  I.waitForVisible(generalPage.utx.row.block, 30);
+  I.waitForVisible(generalPage.utx.row.block);
   I.waitForVisible(generalPage.utx.row.txId);
   I.waitForVisible(generalPage.utx.row.info);
   I.waitForVisible(generalPage.utx.row.sender);
