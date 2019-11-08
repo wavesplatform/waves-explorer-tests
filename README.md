@@ -37,7 +37,7 @@ $ npx codeceptjs run tests/assetInfo_tets.js
 
 #### Run tests on different url
 ```sh
-$ TEST_URL=https://stage.wavesexplorer.com npx codeceptjs run
+$ TEST_URL=https://wavesexplorer.com npx codeceptjs run
 ```
 
 ### Docker Compose
