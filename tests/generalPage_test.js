@@ -29,11 +29,11 @@ Scenario('Last blocks elements', (I, generalPage) => {
   I.waitForVisible(generalPage.lastBlocks.row.blockLink);
 });
 
-Scenario('UTX elements', { retries: 3 }, (I, generalPage) => {
+Scenario('UTX elements', { retries: 10 }, (I, generalPage) => {
   I.openExplorer();
 
   I.waitForVisible(generalPage.utx.block);
-  I.waitForVisible(generalPage.utx.title, 30);
+  I.waitForVisible(generalPage.utx.title, 6);
 
   I.waitForVisible(generalPage.utx.row.block);
   I.waitForVisible(generalPage.utx.row.txId);
