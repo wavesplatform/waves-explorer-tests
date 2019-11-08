@@ -41,7 +41,7 @@ Scenario('Block not found', (I, blockInfoPage) => {
   I.waitForVisible(blockInfoPage.blockNotFound.errorText);
 });
 
-Scenario('Previous/Next block button', (I, blockInfoPage) => {
+Scenario('Previous/Next block button', { retries: 3 }, (I, blockInfoPage) => {
   I.openExplorer('/blocks/10000');
 
   I.waitForVisible(blockInfoPage.fields.height.previous);
