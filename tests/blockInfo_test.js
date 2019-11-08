@@ -3,7 +3,7 @@ var assert = require('chai').assert;
 
 Feature('Block Info');
 
-Scenario('Block info elements', (I, blockInfoPage) => {
+Scenario('Block info elements', { retries: 3 }, (I, blockInfoPage) => {
   I.openExplorer('/blocks/1741111');
 
   I.waitForVisible(blockInfoPage.backLink);
@@ -58,7 +58,7 @@ Scenario('Previous/Next block button', { retries: 3 }, (I, blockInfoPage) => {
   I.wait(2);
 });
 
-Scenario('Generator link', (I, blockInfoPage) => {
+Scenario('Generator link', { retries: 3 }, (I, blockInfoPage) => {
   I.openExplorer('/blocks/10000');
 
   I.waitForVisible(blockInfoPage.fields.generator);
