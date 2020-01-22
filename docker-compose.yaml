@@ -31,8 +31,9 @@ services:
       - "./output:/explorer/output"
     build: 
       context: .
-      args:
-        - TESTURL=${TEST_URL}
+      environment:
+        - TEST_URL=${TEST_URL}
+        - SELENIUM_HOST=hub
     depends_on: 
       - hub
       - firefox
