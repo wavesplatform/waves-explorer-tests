@@ -26,13 +26,14 @@ services:
     image: selenium/hub:latest
 
   explorer:
-
+    environment:
+      - TEST_URL=${TEST_URL}
+      - SELENIUM_HOST=hub
+      - STAGENET
     volumes: 
       - "./output:/explorer/output"
     build: 
       context: .
-      args:
-        - TESTURL=${TEST_URL}
     depends_on: 
       - hub
       - firefox
