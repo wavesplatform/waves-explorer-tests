@@ -55,7 +55,7 @@ if(process.env.SELENIUM_HOST != undefined) {
   exports.config.helpers.WebDriver.host = process.env.SELENIUM_HOST;
 }
 
-if(process.env.STAGENET != undefined){
+if(process.env.STAGENET == 'true') {
   exports.config.tests = './stagenet_tests/*_test.js';
 }
 
