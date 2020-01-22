@@ -29,6 +29,7 @@ services:
     environment:
       - TEST_URL=${TEST_URL}
       - SELENIUM_HOST=hub
+      - STAGENET
     volumes: 
       - "./output:/explorer/output"
     build: 
