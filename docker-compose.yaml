@@ -26,14 +26,13 @@ services:
     image: selenium/hub:latest
 
   explorer:
-
+    environment:
+      - TEST_URL=${TEST_URL}
+      - SELENIUM_HOST=hub
     volumes: 
       - "./output:/explorer/output"
     build: 
       context: .
-      environment:
-        - TEST_URL=${TEST_URL}
-        - SELENIUM_HOST=hub
     depends_on: 
       - hub
       - firefox
