@@ -49,10 +49,16 @@ exports.config = {
 
 if(process.env.TEST_URL != undefined) {
   exports.config.helpers.WebDriver.url = process.env.TEST_URL;
-  console.log("TEST_URL = " + process.env.TEST_URL);
 }
 
 if(process.env.SELENIUM_HOST != undefined) {
-  exports.config.helpers.WebDriver.host = process.env.SELENIUM_HOST;
-  console.log("SELENIUM_HOST = " + process.env.SELENIUM_HOST);
+  exports.config.helpers.WebDriver.url = process.env.SELENIUM_HOST;
 }
+
+if(process.env.STAGENET != undefined){
+  exports.config.tests = './stagenet_tests/*_test.js';
+}
+
+console.log("SELENIUM_HOST = " + exports.config.helpers.WebDriver.url);
+console.log("TEST_URL = " + exports.config.helpers.WebDriver.url);
+console.log("Tests = " + exports.config.tests);
