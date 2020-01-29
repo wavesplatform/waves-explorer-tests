@@ -27,7 +27,7 @@ Scenario('Set Script data parsing', (I, transactionInfoPage) => {
   I.see('4EvGSCLg1NgDdfNxrL6EezCsYE1pPHQfDByvZtHNk41Ybyt1bCkjnXTNRmdNF6aa4KveGigGSWjxE3vzWBH17dTc', transactionInfoPage.fields.proofs);
   
   I.see('Scripted Asset', transactionInfoPage.fields.asset);
-  I.see('base64:AwZd0cYf', transactionInfoPage.fields.script.text);
+  I.see('CONTENT_TYPE EXPRESSION', transactionInfoPage.fields.script.text);
 
   I.see('1 WAVES', transactionInfoPage.fields.fee);
   I.see('3Maom8S6NrD3PodqTZ6kxauzq4Ma9xPKaoh', transactionInfoPage.fields.sender);
@@ -40,8 +40,6 @@ Scenario('Set Script data parsing', (I, transactionInfoPage) => {
 Scenario('View Decompiled script', (I, transactionInfoPage) => {
   I.openExplorer('/stagenet/tx/FD3FNRe4gCtpASfZuP7guEgCE6fhfzSGuSVjDHjSYSbp');
 
-  transactionInfoPage.switchToDecompiledView();
-  I.wait(2);
-
-  I.see('CONTENT_TYPE EXPRESSION', transactionInfoPage.fields.script.text);
+  transactionInfoPage.switchToBase64View();
+  I.see('base64:AwZd0cYf', transactionInfoPage.fields.script.text);
 });

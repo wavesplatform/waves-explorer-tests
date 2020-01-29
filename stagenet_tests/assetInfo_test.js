@@ -31,7 +31,7 @@ Scenario('Asset Info data parsing', (I, assetInfoPage) => {
   I.see('true', assetInfoPage.fields.scripted);
   I.see('N/A', assetInfoPage.fields.sponsoredFee);
 
-  I.see('base64:AwZd0cYf', assetInfoPage.fields.script.text);
+  I.see('CONTENT_TYPE EXPRESSION', assetInfoPage.fields.script.text);
 });
 
 Scenario('Sponsored asset', (I, assetInfoPage) => {
@@ -43,8 +43,6 @@ Scenario('Sponsored asset', (I, assetInfoPage) => {
 Scenario('View Decompiled script', (I, assetInfoPage) => {
   I.openExplorer('/stagenet/assets/B69KrhJfMtuPZECPm5k7uGe5kSMzWqFDaBkVi6wMw11w');
 
-  assetInfoPage.switchToDecompiledView();
-  I.wait(2);
-
-  I.see('CONTENT_TYPE EXPRESSION', assetInfoPage.fields.script.text);
+  assetInfoPage.switchToBase64View();
+  I.see('base64:AwZd0cYf', assetInfoPage.fields.script.text);
 });
