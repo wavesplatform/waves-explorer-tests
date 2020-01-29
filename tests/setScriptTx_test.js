@@ -46,7 +46,7 @@ Scenario('Set Script data parsing', (I, transactionInfoPage) => {
   I.see('1233683', transactionInfoPage.fields.block);
   I.see('Y3d4RHae6pv6PemcWypoRNdzMJASnv84hKVVbdnx8aiGcFeFCDsG4yVAzGEUxZK9fTm1YfPrQQ3MnGB1FMEaVPg', transactionInfoPage.fields.proofs);
   
-  I.see('base64:AQQAAAAJcHV', transactionInfoPage.fields.script.text);
+  I.see('let publicKey', transactionInfoPage.fields.script.text);
 
   I.see('0.01 WAVES', transactionInfoPage.fields.fee);
   I.see('3P5r1EXZwxJ21f3T3zvjx61RtY52QV4fb18', transactionInfoPage.fields.sender);
@@ -74,10 +74,8 @@ Scenario('Link to Sender', (I, transactionInfoPage) => {
 Scenario('View Decompiled script', (I, transactionInfoPage) => {
   I.openExplorer('/tx/4v7wz8GkN1MGV7zSGw8h7BFqzSvz5YWUd2xtrQWrZzAK');
 
-  transactionInfoPage.switchToDecompiledView();
-  I.wait(2);
-
-  I.see('let publicKey', transactionInfoPage.fields.script.text);
+  transactionInfoPage.switchToBase64View();
+  I.see('base64:AQQAAAAJcHV', transactionInfoPage.fields.script.text);
 });
 
 Scenario('Cancel script', (I, transactionInfoPage) => {

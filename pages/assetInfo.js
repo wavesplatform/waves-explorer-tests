@@ -19,5 +19,9 @@ module.exports = {
 
   switchToDecompiledView() {
     scriptFieldFragment.switchToDecompiledView();
+  },
+
+  switchToBase64View() {
+    scriptFieldFragment.switchToBase64View();
   }
 }
