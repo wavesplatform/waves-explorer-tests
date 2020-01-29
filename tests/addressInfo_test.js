@@ -80,7 +80,7 @@ Scenario('Script data', (I, addressInfoPage) => {
   I.openExplorer('/address/3P94WBB8fPrFsrBRugeyT9xFymZEbHMaLWW/script');
 
   I.waitForVisible(addressInfoPage.scriptBlock.fields.script);
-  I.see('ase64:AAIDAAAAAAAAAA8IARIDC', addressInfoPage.scriptBlock.fields.script);
+  I.see('func send (address)', addressInfoPage.scriptBlock.fields.script);
 });
 
 Scenario('Data TX state', (I, addressInfoPage) => {
