@@ -18,5 +18,12 @@ module.exports = {
     I.click(this.script.viewType.select);
     I.waitForVisible(this.script.viewType.decompiled);
     I.click(this.script.viewType.decompiled);
+  },
+
+  switchToBase64View() {
+    I.waitForVisible(this.script.viewType.select);
+    I.click(this.script.viewType.select);
+    I.waitForVisible(this.script.viewType.base64);
+    I.click(this.script.viewType.base64);
   }
 }

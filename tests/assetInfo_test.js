@@ -51,7 +51,7 @@ Scenario('Asset Info data parsing', (I, assetInfoPage) => {
   I.see('true', assetInfoPage.fields.scripted);
   I.see('N/A', assetInfoPage.fields.sponsoredFee);
 
-  I.see('base64:AQQAAAAFV0FWSWQBA', assetInfoPage.fields.script.text);
+  I.see('case t: BurnTransaction =>', assetInfoPage.fields.script.text);
 });
 
 Scenario('Sponsored asset', (I, assetInfoPage) => {
@@ -63,10 +63,8 @@ Scenario('Sponsored asset', (I, assetInfoPage) => {
 Scenario('View Decompiled script', (I, assetInfoPage) => {
   I.openExplorer('/assets/AktgDWQF1rBXkjYf7MWjLqcZt8knZyLCTJtmH7jnEMKS');
 
-  assetInfoPage.switchToDecompiledView();
-  I.wait(2);
-
-  I.see('case t: BurnTransaction =>', assetInfoPage.fields.script.text);
+  assetInfoPage.switchToBase64View();
+  I.see('base64:AQQAAAAFV0FWSWQBA', assetInfoPage.fields.script.text);
 });
 
 Scenario('Link to Transaction', (I, assetInfoPage) => {
