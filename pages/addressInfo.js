@@ -19,6 +19,10 @@ module.exports = {
       nft: {xpath: '//a[text()="Non-fungible tokens"]'},
       data: {xpath: '//a[text()="Data"]'},
       script: {xpath: '//a[text()="Script"]'}
+    },
+
+    buttons: {
+      openDapp: {xpath: '//div[contains(@class, "btn")][text()="Open Dapp"]'}
     }
   },
 

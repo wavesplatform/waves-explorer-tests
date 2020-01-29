@@ -157,3 +157,18 @@ Scenario('Transactions list', (I, addressInfoPage) => {
   I.see('PC6vbbRvhv1ojcJwfgPT61rgpgRC7jzvod', addressInfoPage.transactionsTable.fields.sender);
   I.see('0.46600246 WAVES', addressInfoPage.transactionsTable.fields.amount);
 });
+
+Scenario('Open Dapp button not shown on regular address', (I, addressInfoPage) => {
+  I.openExplorer('/address/3PHoTqPgraC3UQh5Xe7vTPA5wpPVcmfuDyZ/script');
+
+  I.waitForInvisible(addressInfoPage.menu.buttons.openDapp);
+});
+
+Scenario('Open Dapp button shown on Dapp address', (I, addressInfoPage) => {
+  I.openExplorer('/address/3P94WBB8fPrFsrBRugeyT9xFymZEbHMaLWW/script');
+
+  I.waitForVisible(addressInfoPage.menu.buttons.openDapp);
+  I.click(addressInfoPage.menu.buttons.openDapp);
+  I.switchToNextTab();
+  I.seeCurrentUrlEquals('https://waves-dapp.com/3P94WBB8fPrFsrBRugeyT9xFymZEbHMaLWW');
+});
