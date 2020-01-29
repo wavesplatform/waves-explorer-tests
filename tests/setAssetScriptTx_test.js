@@ -48,7 +48,7 @@ Scenario('Set Script data parsing', (I, transactionInfoPage) => {
   I.see('56NeC1w56PMRwMnThqWgsbkVEhkakqDHfYoREoDPSiFeiJYigdciF1dxBAS3jGWzLwACjjo3b77Gqp6YFuhg3tme', transactionInfoPage.fields.proofs);
   
   I.see('VerySmartAsset', transactionInfoPage.fields.asset);
-  I.see('base64:AQQAAAAHJG', transactionInfoPage.fields.script.text);
+  I.see('match tx {', transactionInfoPage.fields.script.text);
 
   I.see('1 WAVES', transactionInfoPage.fields.fee);
   I.see('3P5r1EXZwxJ21f3T3zvjx61RtY52QV4fb18', transactionInfoPage.fields.sender);
@@ -77,8 +77,6 @@ Scenario('Link to Sender', (I, transactionInfoPage) => {
 Scenario('View Decompiled script', (I, transactionInfoPage) => {
   I.openExplorer('/tx/GDQk4LcTJpdi9ZxiLcVQrEvUXbtM2992vov6tYKpzues');
 
-  transactionInfoPage.switchToDecompiledView();
-  I.wait(2);
-
-  I.see('match tx {', transactionInfoPage.fields.script.text);
+  transactionInfoPage.switchToBase64View();
+  I.see('base64:AQQAAAAHJG', transactionInfoPage.fields.script.text);
 });
