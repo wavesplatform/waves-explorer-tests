@@ -13,7 +13,7 @@ Scenario('Header elements', (I, navigationFragment) => {
   });
 });
 
-Scenario('Lease Cancel transaction data parsing', (I, transactionInfoPage) => {
+Scenario('Create Alias transaction data parsing', (I, transactionInfoPage) => {
   I.openExplorer('/stagenet/tx/G7zvScnL2oAnrUYzyEYWZVcPUnt4nD5dLB1WMzwCHvpi');
 
   I.see('10', transactionInfoPage.fields.type.text);
@@ -28,7 +28,7 @@ Scenario('Lease Cancel transaction data parsing', (I, transactionInfoPage) => {
   I.see('puk1580968025203', transactionInfoPage.fields.alias);
   I.see('0.001 WAVES', transactionInfoPage.fields.fee);
   I.see('3MYVzb3RHkZj7hiFgQKcn7tDw3JZvXMM1kt', transactionInfoPage.fields.sender);
-  I.see('FB5ErjREo817duEBBQUqUdkgoPctQJEYuG3mU7w3AYjc', transactionInfoPage.fields.senderPublicKey);
+  I.see('CKSSqFyPwucYP9cSbWxccw43jedVxipeABQCJt5EkXHT', transactionInfoPage.fields.senderPublicKey);
   I.click(transactionInfoPage.fields.json.showButton);
   I.waitForVisible(transactionInfoPage.fields.json.text);
 });

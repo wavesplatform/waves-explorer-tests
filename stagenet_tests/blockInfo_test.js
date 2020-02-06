@@ -15,7 +15,7 @@ Scenario('Block info elements', { retries: 3 }, (I, blockInfoPage) => {
   I.waitForVisible(blockInfoPage.fields.height.next);
   I.see('5', blockInfoPage.fields.version);
 
-  var testDate = new Date('2020-02-06T07:46:44Z');
+  var testDate = new Date('2020-02-06T04:46:44Z');
   I.see(I.formatDateToExplorerFormat(testDate), blockInfoPage.fields.timestamp);
 
   I.see('2', blockInfoPage.fields.transactions);

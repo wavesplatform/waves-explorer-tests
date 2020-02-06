@@ -25,7 +25,7 @@ Scenario('Data TX data parsing', (I, transactionInfoPage) => {
 
   I.see('279150', transactionInfoPage.fields.block);
   I.see('C6ssX15sBWciN7CcvDP4MAxcH7RxHvHQsPDoUtZdG4zZfDrM8ZRnrgqdcNuZAWCUXFUybU51zwomMN72QgsZ7Xk', transactionInfoPage.fields.proofs);
-  I.see('"key": "price_315629""', transactionInfoPage.fields.data);
+  I.see('"key": "price_315629"', transactionInfoPage.fields.data);
   I.see('0.001 WAVES', transactionInfoPage.fields.fee);
   I.see('3MRzeHJTxhcAw3FhPbwPSR2ZxA7M8hA5AzV', transactionInfoPage.fields.sender);
   I.see('6evGWz6dQ8Skrd2XhAF3bGLH5reaPQUUenyRKkcBRJcK', transactionInfoPage.fields.senderPublicKey);
