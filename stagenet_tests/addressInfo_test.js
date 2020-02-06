@@ -69,44 +69,45 @@ Scenario('Open Data from navigation', (I, addressInfoPage) => {
 });
 
 Scenario('Open Script from navigation', (I, addressInfoPage) => {
-  I.openExplorer('/stagenet/address/3MakWfAEmsCAJTskba14B9WmYJfPRJJ49gP/tx');
+  I.openExplorer('/stagenet/address/3MXefnoNKqi38LbfXXZ4PcgwE9xZ7pdDorn/tx');
 
   I.waitForVisible(addressInfoPage.menu.links.script);
   I.click(addressInfoPage.menu.links.script);
-  I.seeCurrentUrlEquals('/stagenet/address/3MakWfAEmsCAJTskba14B9WmYJfPRJJ49gP/script');
+  I.seeCurrentUrlEquals('/stagenet/address/3MXefnoNKqi38LbfXXZ4PcgwE9xZ7pdDorn/script');
 });
 
 Scenario('Script data', (I, addressInfoPage) => {
-  I.openExplorer('/stagenet/address/3MakWfAEmsCAJTskba14B9WmYJfPRJJ49gP/script');
+  I.openExplorer('/stagenet/address/3MXefnoNKqi38LbfXXZ4PcgwE9xZ7pdDorn/script');
 
   I.waitForVisible(addressInfoPage.scriptBlock.fields.script);
-  I.see('ase64:AAIDAAAAAAAAAA8IARIDC', addressInfoPage.scriptBlock.fields.script);
+  I.see('{-# STDLIB_VERSION 3 #-} {-# SCRIPT_TYPE ACCOUNT #-} {-# CONTENT_TYPE DAPP #-}', addressInfoPage.scriptBlock.fields.script);
 });
 
 Scenario('Data TX state', (I, addressInfoPage) => {
-  I.openExplorer('/stagenet/address/3MakWfAEmsCAJTskba14B9WmYJfPRJJ49gP/data');
+  I.openExplorer('/stagenet/address/3MXefnoNKqi38LbfXXZ4PcgwE9xZ7pdDorn/data');
 
   I.waitForVisible(addressInfoPage.dataBlock.fields.data);
-  I.see('"key": "test_bin"', addressInfoPage.dataBlock.fields.data);
+  I.see('"key": "binary"', addressInfoPage.dataBlock.fields.data);
 });
 
 Scenario('NFT List', (I, addressInfoPage) => {
-  I.openExplorer('/stagenet/address/3MakWfAEmsCAJTskba14B9WmYJfPRJJ49gP/nft');
+  I.openExplorer('/stagenet/address/3MYVzb3RHkZj7hiFgQKcn7tDw3JZvXMM1kt/nft');
 
   I.waitForVisible(addressInfoPage.nftTable.headers.id);
   I.waitForVisible(addressInfoPage.nftTable.headers.name);
   I.waitForVisible(addressInfoPage.nftTable.fields.id);
   I.waitForVisible(addressInfoPage.nftTable.fields.name);
-  I.see('GnTPrZJrSKoFXUQ4QEipuhfKXPrrne2M39hrxktshnsd', addressInfoPage.nftTable.fields.id);
-  I.see('ITEM_0000', addressInfoPage.nftTable.fields.name);
+  /* TODO: uncomment this after https://jira.wavesplatform.com/browse/EXP-586 will be done
+  I.see('3oxTeVd3rRBbDgMUPpu63k4Q4N6wc6n4581C9rjVzzVj', addressInfoPage.nftTable.fields.id);
+  I.see('NFToken', addressInfoPage.nftTable.fields.name);
 
   //Click on Id
-  I.click({xpath: '//a[text()="GnTPrZJrSKoFXUQ4QEipuhfKXPrrne2M39hrxktshnsd"]'})
-  I.seeCurrentUrlEquals('/stagenet/assets/GnTPrZJrSKoFXUQ4QEipuhfKXPrrne2M39hrxktshnsd');
+  I.click({xpath: '//a[text()="3oxTeVd3rRBbDgMUPpu63k4Q4N6wc6n4581C9rjVzzVj"]'})
+  I.seeCurrentUrlEquals('/stagenet/assets/3oxTeVd3rRBbDgMUPpu63k4Q4N6wc6n4581C9rjVzzVj');*/
 });
 
 Scenario('Assets List', (I, addressInfoPage) => {
-  I.openExplorer('/stagenet/address/3MakWfAEmsCAJTskba14B9WmYJfPRJJ49gP/assets');
+  I.openExplorer('/stagenet/address/3MYVzb3RHkZj7hiFgQKcn7tDw3JZvXMM1kt/assets');
 
   I.waitForVisible(addressInfoPage.assetsTable.headers.id);
   I.waitForVisible(addressInfoPage.assetsTable.headers.name);
@@ -114,9 +115,9 @@ Scenario('Assets List', (I, addressInfoPage) => {
   I.waitForVisible(addressInfoPage.assetsTable.fields.id);
   I.waitForVisible(addressInfoPage.assetsTable.fields.name);
   I.waitForVisible(addressInfoPage.assetsTable.fields.balance);
-  I.see('yrdwwJJqTKoCt63krHFVZxJvNbUPgHcDeuJXPEGsJCx', addressInfoPage.assetsTable.fields.id);
-  I.see('Bitcoin', addressInfoPage.assetsTable.fields.name);
-  I.see('0.99219750', addressInfoPage.assetsTable.fields.balance);
+  I.see('9be3uZKfMQJs6Xc9jkTK7X8DUpWcpToKLzTEs4jKeaPA', addressInfoPage.assetsTable.fields.id);
+  I.see('My sponsored', addressInfoPage.assetsTable.fields.name);
+  I.see('1000000.00000000', addressInfoPage.assetsTable.fields.balance);
 
   //Click on Id
   I.click({xpath: '//a[text()="yrdwwJJqTKoCt63krHFVZxJvNbUPgHcDeuJXPEGsJCx"]'})
@@ -124,12 +125,12 @@ Scenario('Assets List', (I, addressInfoPage) => {
 });
 
 Scenario('Aliases list', (I, addressInfoPage) => {
-  I.openExplorer('/stagenet/address/3MakWfAEmsCAJTskba14B9WmYJfPRJJ49gP/aliases');
+  I.openExplorer('/stagenet/address/3MYVzb3RHkZj7hiFgQKcn7tDw3JZvXMM1kt/aliases');
 
   I.waitForVisible(addressInfoPage.aliasesTable.headers.alias);
   I.waitForVisible(addressInfoPage.aliasesTable.fields.alias);
 
-  I.see('new_merry', addressInfoPage.aliasesTable.fields.alias);
+  I.see('puk1580968025203', addressInfoPage.aliasesTable.fields.alias);
 });
 
 Scenario('Transactions list', (I, addressInfoPage) => {
@@ -147,13 +148,13 @@ Scenario('Transactions list', (I, addressInfoPage) => {
   I.waitForVisible(addressInfoPage.transactionsTable.fields.amount);
   I.waitForVisible(addressInfoPage.transactionsTable.fields.price);
 
-  I.see('8zKb9o2MjiNWRDK2Us8ZpZ4a1YmHaKifwAspXbdAZmxC', addressInfoPage.transactionsTable.fields.id);
-  I.see('Asset Transfer', addressInfoPage.transactionsTable.fields.id);
-  var txDate = new Date(1569232706853);
+  I.see('6d5ByW7ExPhmue88ucJHh9n9UCQhNgkApGf8r4Nbqyj7', addressInfoPage.transactionsTable.fields.id);
+  I.see('Lease', addressInfoPage.transactionsTable.fields.id);
+  var txDate = new Date(1574869257415);
   I.see(I.formatDateToFormat(txDate, 'HH:mm:ss'), addressInfoPage.transactionsTable.fields.timestamp);
   I.see(I.formatDateToFormat(txDate, 'dd.MM.yyyy'), addressInfoPage.transactionsTable.fields.timestamp);
   
+  I.see('merry', addressInfoPage.transactionsTable.fields.sender);
   I.see('3MakWfAEmsCAJTskba14B9WmYJfPRJJ49gP', addressInfoPage.transactionsTable.fields.sender);
-  I.see('3MgSuT5FfeMrwwZCbztqLhQpcJNxySaFEiT', addressInfoPage.transactionsTable.fields.sender);
-  I.see('10 WAVES', addressInfoPage.transactionsTable.fields.amount);
+  I.see('1 WAVES', addressInfoPage.transactionsTable.fields.amount);
 });

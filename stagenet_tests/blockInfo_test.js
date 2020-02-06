@@ -4,28 +4,28 @@ var assert = require('chai').assert;
 Feature('Block Info @stagenet');
 
 Scenario('Block info elements', { retries: 3 }, (I, blockInfoPage) => {
-  I.openExplorer('stagenet/blocks/294226');
+  I.openExplorer('stagenet/blocks/279062');
 
   I.waitForVisible(blockInfoPage.backLink);
-  I.see('294226', blockInfoPage.blockTitle);
+  I.see('279062', blockInfoPage.blockTitle);
 
   //Fields
-  I.see('294226', blockInfoPage.fields.height.text);
+  I.see('279062', blockInfoPage.fields.height.text);
   I.waitForVisible(blockInfoPage.fields.height.previous);
   I.waitForVisible(blockInfoPage.fields.height.next);
-  I.see('4', blockInfoPage.fields.version);
+  I.see('5', blockInfoPage.fields.version);
 
-  var testDate = new Date('2020-01-22T09:23:10Z');
+  var testDate = new Date('2020-02-06T07:46:44Z');
   I.see(I.formatDateToExplorerFormat(testDate), blockInfoPage.fields.timestamp);
 
-  I.see('4', blockInfoPage.fields.transactions);
-  I.see('248B15a7rGgrXLVFhzzXN3GSbmxWCRAtU8uH6btzwhzxBfdmmkCZhMPrZED24fEHeuohhgAx3NBaYsafWdN6nGqJ', blockInfoPage.fields.parentBlock.text);
+  I.see('2', blockInfoPage.fields.transactions);
+  I.see('Zwpt5fygNvLqMDJQFAo17KKGs1p1qxysY7ihcoC9aAvTrP8cr6MP3cJ6yCfbT9dqWH2mZtbvfKAeNZrR8ATuvgP', blockInfoPage.fields.parentBlock.text);
   I.waitForVisible(blockInfoPage.fields.parentBlock.copyButton);
-  I.see('3MSNMcqyweiM9cWpvf4Fn8GAWeuPstxj2hK', blockInfoPage.fields.generator);
-  I.see('22pM9fZ1CWjhRpC1rWTNVgLBzgp8gVWX2xKodZe6qaRiKPg8kqf966mbsFRfpsfzxXwvkv49X7Zu2AojTVEY4Sm7', blockInfoPage.fields.signature.text);
+  I.see('3Mkcn5PnFzkEYtfTxLc8Ui1WW1WHkvXs7fp', blockInfoPage.fields.generator);
+  I.see('GvvGJF6ufQ1ixLGp2gdmSM8MzmWMriY8aKjYd2YpQmH7BBuyZATv5nTbZXjNEKeFtg9tgtCfVv66EeDcS6e8pp2', blockInfoPage.fields.signature.text);
   I.waitForVisible(blockInfoPage.fields.signature.copyButton);
-  I.see('843 bytes', blockInfoPage.fields.size);
-  I.see('0.004 WAVES', blockInfoPage.fields.totalFee);
+  I.see('713 bytes', blockInfoPage.fields.size);
+  I.see('0.002 WAVES', blockInfoPage.fields.totalFee);
   I.see('6 WAVES', blockInfoPage.fields.reward);
 
   //TXs table
