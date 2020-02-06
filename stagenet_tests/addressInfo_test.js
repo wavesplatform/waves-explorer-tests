@@ -80,7 +80,7 @@ Scenario('Script data', (I, addressInfoPage) => {
   I.openExplorer('/stagenet/address/3MXefnoNKqi38LbfXXZ4PcgwE9xZ7pdDorn/script');
 
   I.waitForVisible(addressInfoPage.scriptBlock.fields.script);
-  I.see('{-# STDLIB_VERSION 3 #-} {-# SCRIPT_TYPE ACCOUNT #-} {-# CONTENT_TYPE DAPP #-}', addressInfoPage.scriptBlock.fields.script);
+  I.see('CONTENT_TYPE DAPP', addressInfoPage.scriptBlock.fields.script);
 });
 
 Scenario('Data TX state', (I, addressInfoPage) => {
@@ -95,9 +95,9 @@ Scenario('NFT List', (I, addressInfoPage) => {
 
   I.waitForVisible(addressInfoPage.nftTable.headers.id);
   I.waitForVisible(addressInfoPage.nftTable.headers.name);
-  I.waitForVisible(addressInfoPage.nftTable.fields.id);
   I.waitForVisible(addressInfoPage.nftTable.fields.name);
   /* TODO: uncomment this after https://jira.wavesplatform.com/browse/EXP-586 will be done
+  I.waitForVisible(addressInfoPage.nftTable.fields.id);
   I.see('3oxTeVd3rRBbDgMUPpu63k4Q4N6wc6n4581C9rjVzzVj', addressInfoPage.nftTable.fields.id);
   I.see('NFToken', addressInfoPage.nftTable.fields.name);
 
@@ -120,8 +120,8 @@ Scenario('Assets List', (I, addressInfoPage) => {
   I.see('1000000.00000000', addressInfoPage.assetsTable.fields.balance);
 
   //Click on Id
-  I.click({xpath: '//a[text()="yrdwwJJqTKoCt63krHFVZxJvNbUPgHcDeuJXPEGsJCx"]'})
-  I.seeCurrentUrlEquals('/stagenet/assets/yrdwwJJqTKoCt63krHFVZxJvNbUPgHcDeuJXPEGsJCx');
+  I.click({xpath: '//a[text()="9be3uZKfMQJs6Xc9jkTK7X8DUpWcpToKLzTEs4jKeaPA"]'})
+  I.seeCurrentUrlEquals('/stagenet/assets/9be3uZKfMQJs6Xc9jkTK7X8DUpWcpToKLzTEs4jKeaPA');
 });
 
 Scenario('Aliases list', (I, addressInfoPage) => {

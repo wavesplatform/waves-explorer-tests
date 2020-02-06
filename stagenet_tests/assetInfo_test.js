@@ -7,7 +7,7 @@ Scenario('Header elements', (I, navigationFragment) => {
   within(navigationFragment.root, () => {
     I.waitForVisible(navigationFragment.backLink);
 
-    I.see('My sponsored', navigationFragment.headline.title);
+    I.see('Asset', navigationFragment.headline.title);
     I.see('9be3uZKfMQJs6Xc9jkTK7X8DUpWcpToKLzTEs4jKeaPA', navigationFragment.headline.details);
     I.waitForVisible(navigationFragment.headline.copyButton);
   });
