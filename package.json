@@ -7,7 +7,7 @@
   "devDependencies": {
     "@wdio/selenium-standalone-service": "^5.16.10",
     "chai": "^4.2.0",
-    "codeceptjs": "^2.4.3",
+    "codeceptjs": "^3.0.0",
     "date-fns": "^2.6.0",
     "webdriverio": "^5.18.6"
   },
